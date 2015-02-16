@@ -1,16 +1,16 @@
 {
   "name": "AngularMovie",
   "version": "1.0.0",
-  "description": "Live Coding & Hands On AngularJS",
+  "description": "Formation SeirSchool Angular",
   "author": "Thierry LAU <thierlau@gmail.com>",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/lauterry/angularmovie/"
+    "url": "https://github.com/Sfeir/angularmovie"
   },
   "bugs": {
-    "url": "https://github.com/lauterry/angularmovie/issues"
+    "url": "https://github.com/Sfeir/angularmovieissues"
   },
   "scripts": {
     "start": "node server.js"
