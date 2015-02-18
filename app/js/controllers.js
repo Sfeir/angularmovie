@@ -12,13 +12,41 @@ angularMovieApp.controller("moviesController" ,function ($scope, $http) {
         $scope.movies = resp;
     });
 
-    $scope.deleteMovie = function(index){
+        $scope.deleteMovie = function(index){
+
         $http.delete('/server/api/movies/' + $scope.movies[index].id)
-            .success(function(resp){
-                $scope.movies.splice(index, 1);
-            }
-        );
+            .success(function(){
+                $scope.movies.splice(index,1);
+            })
+            .error(function(resp){
+                console.log(resp);
+            });
+
     };
+
+});
+
+angularMovieApp.controller("movieEditController" ,function ($scope, $http, $routeParams, $location) {
+
+    $http.get('/server/api/movies/' + $routeParams.id).success(function(resp){
+        $scope.movie = resp;
+       
+    });
+
+    $scope.saveMovie = function(movie){
+
+        $http.put('/server/api/movies', movie)
+            .success(function(){
+                $location.path('/movies');
+                //$scope.movies.splice(index,1);
+            })
+            .error(function(resp){
+                console.log(resp);
+            });
+
+    };
+
+        
 
 });
 
@@ -27,7 +55,9 @@ angularMovieApp.controller("movieFormController" ,function ($scope, $http) {
     $scope.addMovie = function(movie){
 
         $http.post('/server/api/movies', movie)
-            .success(function(){
+            .success(function($data){
+                
+                movie.id - $data.id;
                 $scope.movies.push(movie);
                 $scope.movie = {};
             })
@@ -36,6 +66,9 @@ angularMovieApp.controller("movieFormController" ,function ($scope, $http) {
             });
 
     };
+
+
+
 
 });
 
