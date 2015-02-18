@@ -12,7 +12,11 @@ angularMovieApp.config(function($routeProvider) {
             templateUrl: 'partials/movies.html',
             controller : 'moviesController'
         })
-        .otherwise({
+        .when('/movies/edit/:id', {
+        	templateUrl: 'partials/edit.html',
+        	controller: 'movieEditController'
+        })
+		.otherwise({
             redirectTo: '/home'
         });
 });
