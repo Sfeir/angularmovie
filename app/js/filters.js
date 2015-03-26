@@ -21,7 +21,7 @@ angularMovieApp.filter('poster', function () {
         if(!posterUrl){
             return "img/no-poster.jpg";
         } else {
-            return posterUrl;
-        }
+			return posterUrl;
+		}
     };
 });
