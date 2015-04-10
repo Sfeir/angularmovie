@@ -1,0 +1,5 @@
+<a ng-repeat="star in fiveStars">
+	<span ng-class=" {full: $index < $parent.rate} " class="star" ng-click=" $parent.rate=$index+1 ">
+		★
+	</span>
+</a>
