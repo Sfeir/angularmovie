@@ -1,6 +1,6 @@
 <!-- header-->
 <header class="page-header">
-    <h1>Ma vidéothèque <small>{{movies.length}} films</small>
+    <h1>Ma vidéothèque <small>{{ filteredMovies.length }} / {{ movies.length}} films</small>
         <button class="btn btn-primary" data-toggle="modal" data-target="#movie-form-modal">Ajouter un film</button>
     </h1>
 </header>
@@ -17,7 +17,7 @@
 
 <!-- liste des films -->
 <ul class="thumbnails">
-    <li ng-repeat="movie in movies | orderBy:tri:reverse | filter : search " class="span12">
+    <li ng-repeat="movie in filteredMovies = (movies | orderBy:tri:reverse | filter : search)" class="span12">
         <img ng-src="{{movie.poster}}" class="span2">
         <div class="caption">
             <h3>{{movie.title | uppercase}}
